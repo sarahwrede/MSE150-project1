@@ -23,6 +23,13 @@ data1 = np.loadtxt(filename, skiprows=2070, max_rows=1000, delimiter=" ", usecol
 # Make sure to include axis labels and units!
 # plt.plot(xdata, ydata, arguments-to-make-plot-pretty)
 
+stress = np.concatenate((data1[:, 0], data2[:, 0], data3[:, 0]))
+strain = np.concatenate((data1[:, 1], data2[:, 1], data3[:, 1]))
+plt.plot(strain, stress)
+plt.xlabel('Strain (%)')
+plt.ylabel('Stress (Pa)')
+plt.title('Stress vs. Strain')
+plt.show()
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
