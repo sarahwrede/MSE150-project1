@@ -19,7 +19,7 @@ plt.title('Stress vs. Strain')
 # Edit the files (use git liberally here!) to make them more usable
 # Don't worry about deleting parts you might need later -- that's why we use git!
 
-linear_range = slice(0, 2.5)
+linear_range = slice(0, 3)
 slope, intercept = np.polyfit(strain[linear_range], stress[linear_range], deg=1)
 youngs_modulus = slope
 plt.plot(strain[linear_range], intercept + slope * strain[linear_range], color='red')
