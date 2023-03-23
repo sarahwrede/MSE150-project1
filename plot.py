@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+from scipy.stats import linregress
 
 filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data1 = np.loadtxt(filename, skiprows=32, max_rows=1000, delimiter=" ", usecols=(1,5))   # Attempts to load filename into local variable data.
@@ -13,13 +14,12 @@ plt.plot(strain, stress)
 plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
+
+slope, intercept, r_value, p_value, std_err = linregress(strain[:1000], stress[:1000])
+youngs_modulus = slope
+plt.plot(strain[:1000], intercept + slope * strain[:1000], 'r')
 plt.show()
-
-## Part 2
-# Check to see if your code in part 1 will plot all of the files in raw-data/
-# Edit the files (use git liberally here!) to make them more usable
-# Don't worry about deleting parts you might need later -- that's why we use git!
-
+print(f"Young's Modulus = {youngs_modulus} Pa")
 
 ## Part 3
 # Use linear regression to calculate the slope of the linear part of
