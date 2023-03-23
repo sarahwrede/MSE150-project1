@@ -3,7 +3,9 @@ import numpy as np
 import sys
 
 filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
-data = np.loadtxt(filename, skiprows=32, max_rows=100, delimiter=" ", usecols=(0,1,2,3,4,5))   # Attempts to load filename into local variable data.
+data1 = np.loadtxt(filename, skiprows=32, max_rows=1000, delimiter=" ", usecols=(0,1,2,3,4,5))   # Attempts to load filename into local variable data.
+data2 = np.loadtxt(filename, skiprows=1051, max_rows=1000, delimiter=" ", usecols=(0,1,2,3,4,5))
+data1 = np.loadtxt(filename, skiprows=2070, max_rows=1000, delimiter=" ", usecols=(0,1,2,3,4,5))
 
 ## Part 0
 # Figure out what arguments to add to the loadtxt function call
