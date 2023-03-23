@@ -7,26 +7,23 @@ data1 = np.loadtxt(filename, skiprows=32, max_rows=1000, delimiter=" ", usecols=
 data2 = np.loadtxt(filename, skiprows=1051, max_rows=1000, delimiter=" ", usecols=(1,5))
 data3 = np.loadtxt(filename, skiprows=2070, max_rows=1000, delimiter=" ", usecols=(1,5))
 
-## Part 1
-# Figure out what columns and rows of data we need to plot
-# Stress (y-axis) vs Strain (x-axis)
-# plot raw-data/Sp22_245L_sec-001_tensiletest-pekk_bulk.raw
-# Make sure to include axis labels and units!
-# plt.plot(xdata, ydata, arguments-to-make-plot-pretty)
-
 stress = np.concatenate((data1[:, 0], data2[:, 0], data3[:, 0]))
 strain = np.concatenate((data1[:, 1], data2[:, 1], data3[:, 1]))
 plt.plot(strain, stress)
 plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
-plt.show()
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
 # Don't worry about deleting parts you might need later -- that's why we use git!
 
+slope, intercept = np.polyfit(strain, stress, deg=1)
+youngs_modulus = slope
+plt.plot(strain, intercept + slope * strain, color='red')
+print(f"Young's modulus = {youngs_modulus:.2f} Pa")
+plt.show()
 
 ## Part 3
 # Use linear regression to calculate the slope of the linear part of
