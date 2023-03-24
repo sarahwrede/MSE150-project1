@@ -14,7 +14,7 @@ plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
 
-linear_range = slice(0,100)
+linear_range = slice(0,3)
 slope, intercept = np.polyfit(strain[linear_range], stress[linear_range],deg=1)
 youngs_modulus = slope
 plt.plot(strain[linear_range], intercept + slope * strain[linear_range], color='red')
