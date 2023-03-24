@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
-from scipy.stats import linregress
 
 filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data1 = np.loadtxt(filename, skiprows=32, max_rows=1000, delimiter=" ", usecols=(1,5))   # Attempts to load filename into local variable data.
@@ -15,9 +14,9 @@ plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
 
-slope, intercept, r_value, p_value, std_err = linregress(strain[:4], stress[:4])
+slope, intercept = np.polyfit(strain[:1000], stress[:1000], 1)
 youngs_modulus = slope
-plt.plot(strain[:4], intercept + slope * strain[:4], 'r')
+plt.plot(strain[:1000], intercept + slope * strain[1000], color='red')
 plt.show()
 print(f"Young's Modulus = {youngs_modulus} Pa")
 
