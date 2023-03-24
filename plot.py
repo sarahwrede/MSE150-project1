@@ -15,9 +15,9 @@ plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
 
-slope, intercept, r_value, p_value, std_err = linregress(strain[:1000], stress[:1000])
+slope, intercept, r_value, p_value, std_err = linregress(strain[:100], stress[:100])
 youngs_modulus = slope
-plt.plot(strain[:1000], intercept + slope * strain[:1000], 'r')
+plt.plot(strain[:100], intercept + slope * strain[:100], 'r')
 plt.show()
 print(f"Young's Modulus = {youngs_modulus} Pa")
 
