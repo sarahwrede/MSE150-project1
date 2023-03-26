@@ -22,7 +22,7 @@ plt.legend()
 plt.show()
 print(f"Young's Modulus = {youngs_modulus} Pa")
 
-plt.savefig(os.path.join("plots/", f"{filename}.png"))
+plt.savefig(f"{filename}.png"))
 
 ## Part 4
 # Modify your code to save your plots to a file and see if you can generate
