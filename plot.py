@@ -22,12 +22,7 @@ plt.legend()
 plt.show()
 print(f"Young's Modulus = {youngs_modulus} Pa")
 
-## Part 3
-# Use linear regression to calculate the slope of the linear part of
-# the stress-strain data. Plot your line against the data to make 
-# sure it makes sense! Use the slope of this line to calculate and print
-# the Young's modulus (with units!)
-
+fig.savefig(os.path.join("plots/", f"{filename}.png"))
 
 ## Part 4
 # Modify your code to save your plots to a file and see if you can generate
