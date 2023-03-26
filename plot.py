@@ -9,7 +9,7 @@ data3 = np.loadtxt(filename, skiprows=2070, max_rows=1000, delimiter=" ", usecol
 
 stress = np.vstack((data1[:, 0], data2[:, 0], data3[:, 0]))
 strain = np.vstack((data1[:, 1], data2[:, 1], data3[:, 1]))
-plt.plot(strain, stress, label='plot')
+plt.plot(strain, stress)
 plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
