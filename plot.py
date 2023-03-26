@@ -9,7 +9,7 @@ data3 = np.loadtxt(filename, skiprows=2070, max_rows=1000, delimiter=" ", usecol
 
 stress = np.vstack((data1[:, 0], data2[:, 0], data3[:, 0]))
 strain = np.vstack((data1[:, 1], data2[:, 1], data3[:, 1]))
-plt.plot(strain, stress)
+plt.plot(strain, stress, label='plot')
 plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
@@ -18,7 +18,8 @@ max_index = np.argmax(np.gradient(stress))
 linear_range = slice(0, max_index)
 slope, intercept = np.polyfit(np.ravel(strain[linear_range]), np.ravel(stress[linear_range]), deg=1)
 youngs_modulus = slope
-plt.plot(strain[linear_range], intercept + slope * strain[linear_range], color='red')
+plt.plot(strain[linear_range], intercept + slope * strain[linear_range], color='red',label='linear regression' )
+plt.legend()
 plt.show()
 print(f"Young's Modulus = {youngs_modulus} Pa")
 
