@@ -14,6 +14,8 @@ plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
 plt.title('Stress vs. Strain')
 
+if strain.ndim > 1:
+    strain = np.ravel(strain)
 linear_range = slice(0,3)
 slope, intercept = np.polyfit(strain[linear_range], stress[linear_range],deg=1)
 youngs_modulus = slope
