@@ -7,8 +7,8 @@ data1 = np.loadtxt(filename, skiprows=32, max_rows=1000, delimiter=" ", usecols=
 data2 = np.loadtxt(filename, skiprows=1051, max_rows=1000, delimiter=" ", usecols=(1,5))
 data3 = np.loadtxt(filename, skiprows=2070, max_rows=1000, delimiter=" ", usecols=(1,5))
 
-stress = np.append((data1[:, 0], data2[:, 0], data3[:, 0]))
-strain = np.append((data1[:, 1], data2[:, 1], data3[:, 1]))
+stress = np.append(data1[:, 0], np.append(data2[:, 0], data3[:, 0]))
+strain = np.append(data1[:, 1], np.append(data2[:, 1], data3[:, 1]))
 plt.plot(strain, stress)
 plt.xlabel('Strain (%)')
 plt.ylabel('Stress (Pa)')
